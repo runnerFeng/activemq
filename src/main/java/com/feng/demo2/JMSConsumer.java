@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 public class JMSConsumer {
     private final static Logger logger = LoggerFactory.getLogger(JMSConsumer.class);
 
-    @JmsListener(destination = JmsConfig.TOPIC, containerFactory = "jmsListenerContainerTopic")
+    @JmsListener(destination = JmsConfig.TOPIC/*, containerFactory = "jmsListenerContainerTopic"*/)
     public void onTopicMessage(String msg) {
         logger.info("接收到topic消息：{}", msg);
     }
 
-    @JmsListener(destination = JmsConfig.QUEUE, containerFactory = "jmsListenerContainerQueue")
+    @JmsListener(destination = JmsConfig.QUEUE/*, containerFactory = "jmsListenerContainerQueue"*/)
     public void onQueueMessage(String msg) {
         logger.info("接收到queue消息：{}", msg);
     }
